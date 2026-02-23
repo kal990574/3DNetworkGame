@@ -1,20 +1,13 @@
 using UnityEngine;
 
-public enum AttackMode
+public class PlayerAttackAbility : PlayerAbility
 {
-    Sequential,
-    Random
-}
-
-public class PlayerAttackAbility : MonoBehaviour
-{    
-    public AttackMode AttackPattern = AttackMode.Sequential;
-    public int MaxAttackCount = 3;
     private Animator _animator;
 
-    private float ATTACK_COOLTIME = 0.6f;
+    [SerializeField] private EAnimationSequenceType _animationSequenceType;
+
+    private int _prevAnimationNumber = 0;
     private float _attackTimer = 0f;
-    private int _attackIndex = 0;
 
     private void Start()
     {
@@ -23,31 +16,37 @@ public class PlayerAttackAbility : MonoBehaviour
     
     private void Update()
     {
+        if (!photonView.IsMine) return;
+
         _attackTimer += Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && _attackTimer >= ATTACK_COOLTIME)
+        if (Input.GetMouseButton(0) && _attackTimer >= _owner.Stat.AttackSpeed)
         {
             _attackTimer = 0f;
 
-            int attackNum = GetAttackNumber();
-            _animator.SetTrigger($"Attack{attackNum}");
+            int animationNumber = 0;
+            switch (_animationSequenceType)
+            {
+                case EAnimationSequenceType.Sequence:
+                {
+                    animationNumber = 1 + (_prevAnimationNumber++) % 3;
+                    break;
+                }
+                
+                case EAnimationSequenceType.Random:
+                {
+                    animationNumber = Random.Range(1, 4);
+                    break;
+                }
+            }
+            
+            _animator.SetTrigger($"Attack{animationNumber}");
         }
     }
+}
 
-    private int GetAttackNumber()
-    {
-        switch (AttackPattern)
-        {
-            case AttackMode.Sequential:
-                _attackIndex = (_attackIndex % MaxAttackCount) + 1;
-
-                return _attackIndex;
-            
-            case AttackMode.Random:
-                return Random.Range(1, MaxAttackCount + 1);
-            
-            default:
-                return 1;
-        }
-    }
+public enum EAnimationSequenceType
+{
+    Sequence,
+    Random,
 }

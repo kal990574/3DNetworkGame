@@ -1,53 +1,53 @@
 using UnityEngine;
 
-public class PlayerMoveAbility : MonoBehaviour
+public class PlayerMoveAbility : PlayerAbility
 {
-    public float MoveSpeed = 7f;
-    public float JumpForce = 2.5f;
     
-    private const float GRAVITY = 9.81f;
-    private float _yVelocity = 0f;
-    private Transform _cameraTransform;
-    
+    private const float GRAVITY = 9.8f;
+    private float _yVeocity = 0f;
+
     private CharacterController _characterController;
-    
     private Animator _animator;
 
-    private void Awake()
+    // 1. 중력을 적용하세요.
+    // 2. 스페이스바를 누르면 점프하게 해주세요.
+    // 3. 플레이어 이동을 카메라가 바라보는 방향 기준으로 해주세요.
+    // 4. Idle/Run 애니메이션을 블렌드로 적용해주세요.
+    // 5. PlayerAttackAbility 스크립트를 만들어서
+    //    - 마우스 왼쪽 클릭시마다 Attack1 / Attack2 / Attack 3 애니메이션이 아래 옵션에 따라 실행시켜주세요.
+    //    - 인스펙터 옵션 1. 순차적 ( 1 -> 2 -> 3 -> 1)
+    //    -        옵션 2. 랜덤   (랜덤)
+    
+    private void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
-        _cameraTransform = Camera.main.transform;
     }
 
     private void Update()
     {
+        if (!photonView.IsMine) return;
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 forward = _cameraTransform.forward;
-        Vector3 right = _cameraTransform.right;
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
-        Vector3 moveDir = forward * v + right * h;
-
-        if (_characterController.isGrounded)
-        {
-            _yVelocity = 0f;
-
-            if (Input.GetButton("Jump"))
-            {
-                _yVelocity = JumpForce;
-            }
-        }
-
-        _yVelocity -= GRAVITY * Time.deltaTime;
-        moveDir.y = _yVelocity;
-
-        _characterController.Move(moveDir * MoveSpeed * Time.deltaTime);
         
-        _animator.SetFloat("Move", moveDir.magnitude);
+        Vector3 direction = new Vector3(h, 0, v);
+        direction.Normalize();
+        
+        direction = Camera.main.transform.TransformDirection(direction);
+
+        _animator.SetFloat("Move", direction.magnitude);
+
+        _yVeocity -= GRAVITY * Time.deltaTime;
+        
+        if (Input.GetKey(KeyCode.Space) && _characterController.isGrounded)
+        {
+            _yVeocity = _owner.Stat.JumpPower;
+        }
+        
+        direction.y = _yVeocity;
+        
+        _characterController.Move(direction * Time.deltaTime * _owner.Stat.MoveSpeed);
     }
 }
