@@ -7,6 +7,22 @@ public class PlayerController : MonoBehaviour, IPunObservable
 {
     public PlayerStat Stat;
 
+    private PhotonView _photonView;
+
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        if (!_photonView.IsMine) return;
+
+        var copyPosition = FindFirstObjectByType<CopyPosition>();
+        if (copyPosition != null)
+            copyPosition.SetTarget(transform);
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
