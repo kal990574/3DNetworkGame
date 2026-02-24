@@ -1,11 +1,26 @@
 using System;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPunObservable
 {
     public PlayerStat Stat;
-    
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(Stat.CurrentHp);
+            stream.SendNext(Stat.CurrentStamina);
+        }
+        else if(stream.IsReading)
+        {
+            Stat.CurrentHp = (float)stream.ReceiveNext();
+            Stat.CurrentStamina = (float)stream.ReceiveNext();
+        }
+    }
+
     private Dictionary<Type, PlayerAbility> _abilitiesCache = new();
     
     public T GetAbility<T>() where T : PlayerAbility
@@ -17,8 +32,6 @@ public class PlayerController : MonoBehaviour
             return ability as T;
         }
 
-        // 게으른 초기화/로딩 -> 처음에 곧바로 초기화/로딩을 하는게 아니라
-        //                    필요할때만 하는.. 뒤로 미루는 기법
         ability = GetComponent<T>();
 
         if (ability != null)

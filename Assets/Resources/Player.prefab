@@ -701,6 +701,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 9115961477778941729}
   - {fileID: 3411378530336000927}
+  - {fileID: 9101339801953314303}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -765,12 +766,15 @@ MonoBehaviour:
   Stat:
     MoveSpeed: 7
     SprintSpeedMultiplier: 1.8
-    JumpPower: 2.5
+    JumpPower: 10
     RotationSpeed: 200
     AttackSpeed: 0.6
     MaxStamina: 100
+    CurrentStamina: 100
     StaminaDrainRate: 20
     StaminaRecoveryRate: 15
+    MaxHp: 100
+    CurrentHp: 100
 --- !u!114 &1052094269509867841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,4 +800,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db84d8459b7304c078aa6e0fd09c644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHUD
+  _hpBar: {fileID: 3682603655091973332}
   _staminaBar: {fileID: 4151350928080773359}

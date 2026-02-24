@@ -10,6 +10,10 @@ public class PlayerStat
     public float AttackSpeed;
 
     public float MaxStamina = 100f;
+    public float CurrentStamina;
     public float StaminaDrainRate = 20f;
     public float StaminaRecoveryRate = 15f;
+
+    public float MaxHp = 100f;
+    public float CurrentHp;
 }

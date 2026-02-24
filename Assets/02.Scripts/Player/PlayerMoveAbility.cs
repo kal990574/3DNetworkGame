@@ -3,21 +3,19 @@ using UnityEngine;
 public class PlayerMoveAbility : PlayerAbility
 {
     
-    private const float GRAVITY = 9.8f;
+    private const float GRAVITY = 30f;
     private float _yVeocity = 0f;
 
     private CharacterController _characterController;
     private Animator _animator;
 
-    private float _currentStamina;
     public bool IsSprinting { get; private set; }
-    public float CurrentStamina => _currentStamina;
     
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
-        _currentStamina = _owner.Stat.MaxStamina;
+        _owner.Stat.CurrentStamina = _owner.Stat.MaxStamina;
     }
 
     private void Update()
@@ -33,17 +31,17 @@ public class PlayerMoveAbility : PlayerAbility
 
         bool isMoving = direction.magnitude > 0.1f;
         bool trySprint = Input.GetKey(KeyCode.LeftShift);
-        IsSprinting = isMoving && trySprint && _currentStamina > 0f;
+        IsSprinting = isMoving && trySprint && _owner.Stat.CurrentStamina > 0f;
 
         if (IsSprinting)
         {
-            _currentStamina -= _owner.Stat.StaminaDrainRate * Time.deltaTime;
-            _currentStamina = Mathf.Max(_currentStamina, 0f);
+            _owner.Stat.CurrentStamina -= _owner.Stat.StaminaDrainRate * Time.deltaTime;
+            _owner.Stat.CurrentStamina = Mathf.Max(_owner.Stat.CurrentStamina, 0f);
         }
         else
         {
-            _currentStamina += _owner.Stat.StaminaRecoveryRate * Time.deltaTime;
-            _currentStamina = Mathf.Min(_currentStamina, _owner.Stat.MaxStamina);
+            _owner.Stat.CurrentStamina += _owner.Stat.StaminaRecoveryRate * Time.deltaTime;
+            _owner.Stat.CurrentStamina = Mathf.Min(_owner.Stat.CurrentStamina, _owner.Stat.MaxStamina);
         }
         
         direction = Camera.main.transform.TransformDirection(direction);
@@ -56,15 +54,15 @@ public class PlayerMoveAbility : PlayerAbility
         {
             _yVeocity = _owner.Stat.JumpPower;
         }
-        
-        direction.y = _yVeocity;
 
         float speed = _owner.Stat.MoveSpeed;
         if (IsSprinting)
         {
             speed *= _owner.Stat.SprintSpeedMultiplier;
         }
-        
-        _characterController.Move(direction * Time.deltaTime * speed);
+
+        direction *= speed;
+        direction.y = _yVeocity;
+        _characterController.Move(direction * Time.deltaTime);
     }
 }
