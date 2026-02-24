@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(Stat.CurrentHp);
-            stream.SendNext(Stat.CurrentStamina);
+            stream.SendNext(Stat.Stamina.Current);
         }
         else if(stream.IsReading)
         {
             Stat.CurrentHp = (float)stream.ReceiveNext();
-            Stat.CurrentStamina = (float)stream.ReceiveNext();
+            Stat.Stamina.Current = (float)stream.ReceiveNext();
         }
     }
 

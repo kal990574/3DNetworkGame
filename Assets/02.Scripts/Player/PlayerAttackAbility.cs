@@ -20,7 +20,9 @@ public class PlayerAttackAbility : PlayerAbility
 
         _attackTimer += Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && _attackTimer >= _owner.Stat.AttackSpeed)
+        if (Input.GetMouseButton(0)
+            && _attackTimer >= _owner.Stat.AttackSpeed
+            && _owner.Stat.Stamina.TryConsume(_owner.Stat.Stamina.AttackCost))
         {
             _attackTimer = 0f;
 

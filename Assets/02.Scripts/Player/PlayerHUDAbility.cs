@@ -11,6 +11,6 @@ public class PlayerHUDAbility : PlayerAbility
         if (!photonView.IsMine) return;
 
         _hpBar.fillAmount = _owner.Stat.CurrentHp / _owner.Stat.MaxHp;
-        _staminaBar.fillAmount = _owner.Stat.CurrentStamina / _owner.Stat.MaxStamina;
+        _staminaBar.fillAmount = _owner.Stat.Stamina.Current / _owner.Stat.Stamina.Max;
     }
 }

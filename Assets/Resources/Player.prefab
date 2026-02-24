@@ -584,6 +584,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1484026589349973905}
+    - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4512576409814375124}
   m_SourcePrefab: {fileID: 100100000, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
 --- !u!4 &8112640182241367045 stripped
 Transform:
@@ -769,10 +772,13 @@ MonoBehaviour:
     JumpPower: 10
     RotationSpeed: 200
     AttackSpeed: 0.6
-    MaxStamina: 100
-    CurrentStamina: 100
-    StaminaDrainRate: 20
-    StaminaRecoveryRate: 15
+    Stamina:
+      Max: 100
+      Current: 0
+      DrainRate: 20
+      RecoveryRate: 15
+      JumpCost: 10
+      AttackCost: 15
     MaxHp: 100
     CurrentHp: 100
 --- !u!114 &1052094269509867841
@@ -802,3 +808,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHUD
   _hpBar: {fileID: 3682603655091973332}
   _staminaBar: {fileID: 4151350928080773359}
+--- !u!114 &4512576409814375124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925628616436272831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3694c879192b54c3c9d07e14239300ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStaminaAbility
