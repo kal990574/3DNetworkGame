@@ -21,6 +21,7 @@ public class PlayerRotateAbility : PlayerAbility
     private void Update()
     {
         if (!photonView.IsMine) return;
+        if (_owner.IsDead) return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

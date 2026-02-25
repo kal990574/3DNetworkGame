@@ -19,6 +19,11 @@ public class PlayerMoveAbility : PlayerAbility
     private void Update()
     {
         if (!photonView.IsMine) return;
+        if (_owner.IsDead)
+        {
+            _yVelocity = 0f;
+            return;
+        }
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");

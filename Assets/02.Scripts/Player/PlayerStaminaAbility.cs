@@ -13,6 +13,7 @@ public class PlayerStaminaAbility : PlayerAbility
     private void Update()
     {
         if (!photonView.IsMine) return;
+        if (_owner.IsDead) return;
         if (_moveAbility.IsSprinting) return;
 
         _owner.Stat.Stamina.Recover(_owner.Stat.Stamina.RecoveryRate * Time.deltaTime);

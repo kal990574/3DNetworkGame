@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
 
     public PhotonView PhotonView;
 
+    public bool IsDead { get; set; }
+
     private void Awake()
     {
         PhotonView = GetComponent<PhotonView>();
@@ -17,7 +19,15 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
     [PunRPC]
     public void TakeDamage(float damage)
     {
+        if (IsDead) return;
+
         Stat.CurrentHp -= damage;
+
+        if (Stat.CurrentHp <= 0f)
+        {
+            Stat.CurrentHp = 0f;
+            GetAbility<PlayerDeathAbility>().Die();
+        }
     }
     
     private void Start()
@@ -35,11 +45,13 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
         {
             stream.SendNext(Stat.CurrentHp);
             stream.SendNext(Stat.Stamina.Current);
+            stream.SendNext(IsDead);
         }
         else if(stream.IsReading)
         {
             Stat.CurrentHp = (float)stream.ReceiveNext();
             Stat.Stamina.Current = (float)stream.ReceiveNext();
+            IsDead = (bool)stream.ReceiveNext();
         }
     }
 
