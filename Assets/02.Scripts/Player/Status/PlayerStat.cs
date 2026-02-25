@@ -9,6 +9,8 @@ public class PlayerStat
     public float RotationSpeed;
     public float AttackSpeed;
 
+    public float Damage;
+
     public Stamina Stamina = new();
 
     public float MaxHp = 100f;

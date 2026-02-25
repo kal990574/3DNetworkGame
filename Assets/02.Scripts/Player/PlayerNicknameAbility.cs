@@ -15,7 +15,7 @@ public class PlayerNicknameAbility : PlayerAbility
         }
         else
         {
-            _nicknameTextUI.color = new Color32(255, 255, 255, 255);
+            _nicknameTextUI.color = new Color32(255, 50, 50, 255);
         }
     }
 }

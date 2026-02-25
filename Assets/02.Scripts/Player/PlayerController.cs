@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IPunObservable
+public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
 {
     public PlayerStat Stat;
 
-    private PhotonView _photonView;
+    public PhotonView PhotonView;
 
     private void Awake()
     {
-        _photonView = GetComponent<PhotonView>();
+        PhotonView = GetComponent<PhotonView>();
     }
 
+    [PunRPC]
+    public void TakeDamage(float damage)
+    {
+        Stat.CurrentHp -= damage;
+    }
+    
     private void Start()
     {
-        if (!_photonView.IsMine) return;
+        if (!PhotonView.IsMine) return;
 
         var copyPosition = FindFirstObjectByType<CopyPosition>();
         if (copyPosition != null)
