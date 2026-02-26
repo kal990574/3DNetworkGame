@@ -5,10 +5,20 @@ public class ScoreItem : MonoBehaviourPun
 {
     private bool _isPickedUp;
     private Collider _collider;
+    private Rigidbody _rigidbody;
 
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (_rigidbody != null && !_rigidbody.isKinematic)
+        {
+            _rigidbody.isKinematic = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
