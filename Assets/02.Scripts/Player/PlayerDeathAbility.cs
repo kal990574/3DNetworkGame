@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDeathAbility : PlayerAbility
 {
-    private const float RESPAWN_DELAY = 5f;
+    private const float RESPAWN_DELAY = 3f;
 
     [SerializeField] private float _fallThreshold = -10f;
 

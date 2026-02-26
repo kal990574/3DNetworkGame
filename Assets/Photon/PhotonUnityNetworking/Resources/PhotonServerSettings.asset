@@ -44,6 +44,8 @@ MonoBehaviour:
   - Die
   - Respawn
   - RPC_Pickup
+  - Pickup
+  - SpawnDropItems
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

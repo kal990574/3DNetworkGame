@@ -23,11 +23,11 @@ public class ScoreItem : MonoBehaviourPun
         _isPickedUp = true;
         player.AddScore(1);
 
-        photonView.RPC(nameof(RPC_Pickup), RpcTarget.All);
+        photonView.RPC(nameof(Pickup), RpcTarget.All);
     }
 
     [PunRPC]
-    private void RPC_Pickup()
+    private void Pickup()
     {
         _isPickedUp = true;
         _collider.enabled = false;
