@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
         if (Stat.CurrentHp <= 0f)
         {
             Stat.CurrentHp = 0f;
+            GetAbility<PlayerItemDropAbility>().DropItems();
             GetAbility<PlayerDeathAbility>().Die();
             PhotonRoomManager.Instance.OnPlayerDeath(attackerActorNumber, PhotonView.Owner.ActorNumber);
         }
@@ -40,6 +41,11 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
             copyPosition.SetTarget(transform);
     }
 
+    public void AddScore(int amount)
+    {
+        Stat.Score += amount;
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -47,12 +53,14 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
             stream.SendNext(Stat.CurrentHp);
             stream.SendNext(Stat.Stamina.Current);
             stream.SendNext(IsDead);
+            stream.SendNext(Stat.Score);
         }
         else if(stream.IsReading)
         {
             Stat.CurrentHp = (float)stream.ReceiveNext();
             Stat.Stamina.Current = (float)stream.ReceiveNext();
             IsDead = (bool)stream.ReceiveNext();
+            Stat.Score = (int)stream.ReceiveNext();
         }
     }
 

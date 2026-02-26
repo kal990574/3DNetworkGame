@@ -15,4 +15,6 @@ public class PlayerStat
 
     public float MaxHp = 100f;
     public float CurrentHp;
+
+    public int Score;
 }
