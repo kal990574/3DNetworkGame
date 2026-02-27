@@ -10,14 +10,15 @@ public class PlayerWeaponHitAbility : PlayerAbility
 
         if (other.transform == _owner.transform) return;
 
-        if (other.TryGetComponent<IDamageable>(out var damageable))
+        var damageable = other.GetComponentInParent<IDamageable>();
+        if (damageable != null)
         {
-            int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
-            PlayerController otherPlayer = other.GetComponent<PlayerController>();
-            if (otherPlayer.IsDead) return;
+            PhotonView targetView = other.GetComponentInParent<PhotonView>();
+            if (targetView == null) return;
 
-            otherPlayer.PhotonView.RPC(nameof(damageable.TakeDamage), RpcTarget.All, _owner.Stat.Damage, actorNumber);
-            
+            int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+            targetView.RPC(nameof(damageable.TakeDamage), RpcTarget.All, _owner.Stat.Damage, actorNumber);
+
             _owner.GetAbility<PlayerWeaponColliderAbility>().DeActiveCollider();
         }
     }

@@ -28,7 +28,11 @@ public class PlayerController : MonoBehaviour, IPunObservable, IDamageable
             Stat.CurrentHp = 0f;
             GetAbility<PlayerItemDropAbility>().DropItems();
             GetAbility<PlayerDeathAbility>().Die();
-            PhotonRoomManager.Instance.OnPlayerDeath(attackerActorNumber, PhotonView.Owner.ActorNumber);
+
+            if (attackerActorNumber >= 0)
+            {
+                PhotonRoomManager.Instance.OnPlayerDeath(attackerActorNumber, PhotonView.Owner.ActorNumber);
+            }
         }
     }
     

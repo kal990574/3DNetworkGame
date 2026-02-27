@@ -1293,6 +1293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHUD
   _hpBar: {fileID: 3682603655091973332}
   _staminaBar: {fileID: 4151350928080773359}
+  _canvas: {fileID: 7878358380611087584}
 --- !u!114 &4512576409814375124
 MonoBehaviour:
   m_ObjectHideFlags: 0
