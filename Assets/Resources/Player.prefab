@@ -592,6 +592,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 450382583515540062, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 511473769390075157, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -632,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 944110246844731764, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1006088413318871360, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -651,6 +659,10 @@ PrefabInstance:
     - target: {fileID: 1431750274107009815, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431750274107009815, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1433742828954284303, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
@@ -712,6 +724,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3327117091920136703, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4009119080283266095, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -756,6 +772,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5038391669603667068, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5500520589681316670, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -791,6 +811,10 @@ PrefabInstance:
     - target: {fileID: 6268617891417236092, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268617891417236092, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6508871864379605767, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -855,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 7787725740055723973, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787725740055723973, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919112825515719869, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_Layer
@@ -1025,6 +1053,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6597630163644063244}
+    - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 284493860874438002}
     - targetCorrespondingSourceObject: {fileID: 7229817629626485462, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5530937825009235125}
@@ -1032,9 +1063,64 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6819665743741872492}
   m_SourcePrefab: {fileID: 100100000, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+--- !u!1 &534999798835383837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 944110246844731764, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &605379072360354026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148664077697093507, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &880032258670916919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 450382583515540062, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2619651745026299542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3327117091920136703, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2740980244416901726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3206421361749962039, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3028966658067981014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2341758691510156735, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3198154718050417413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2744017060783973484, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5213822138582784713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4768647503543977376, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6365135686247909319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5918597498900420782, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6667595730478480661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6268617891417236092, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7307156672551554821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8007022423781019756, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7378333746856878252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7787725740055723973, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
   m_PrefabInstance: {fileID: 753952990087454569}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7936447465694156223 stripped
@@ -1078,6 +1164,11 @@ MonoBehaviour:
 --- !u!4 &8112640182241367045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+  m_PrefabInstance: {fileID: 753952990087454569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8428997204695344859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9119583033058523570, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
   m_PrefabInstance: {fileID: 753952990087454569}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8925628616436272831 stripped
@@ -1365,3 +1456,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponScaleAbility
   _weaponTransform: {fileID: 7307156672551554821}
+--- !u!114 &284493860874438002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925628616436272831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c3a76a8278476693db533ebe27c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerModelAbility
+  _maleParts:
+  - {fileID: 2740980244416901726}
+  - {fileID: 8428997204695344859}
+  - {fileID: 605379072360354026}
+  - {fileID: 3028966658067981014}
+  - {fileID: 3198154718050417413}
+  - {fileID: 2619651745026299542}
+  _femaleParts:
+  - {fileID: 7378333746856878252}
+  - {fileID: 534999798835383837}
+  - {fileID: 6365135686247909319}
+  - {fileID: 880032258670916919}
+  - {fileID: 5213822138582784713}
+  - {fileID: 6667595730478480661}

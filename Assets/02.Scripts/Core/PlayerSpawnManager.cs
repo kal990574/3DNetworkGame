@@ -8,12 +8,14 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _roomManager.OnRoomJoined += SpawnLocalPlayer;
+        if (_roomManager != null)
+            _roomManager.OnRoomJoined += SpawnLocalPlayer;
     }
 
     private void OnDisable()
     {
-        _roomManager.OnRoomJoined -= SpawnLocalPlayer;
+        if (_roomManager != null)
+            _roomManager.OnRoomJoined -= SpawnLocalPlayer;
     }
 
     private void SpawnLocalPlayer()

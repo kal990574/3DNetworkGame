@@ -21,7 +21,17 @@ public class PhotonRoomManager : MonoBehaviourPunCallbacks
     {
         Instance = this;
     }
-    
+
+    private void Start()
+    {
+        if (PhotonNetwork.InRoom)
+        {
+            _room = PhotonNetwork.CurrentRoom;
+            OnDataChanged?.Invoke();
+            OnRoomJoined?.Invoke();
+        }
+    }
+
     public override void OnJoinedRoom()
     {
         _room = PhotonNetwork.CurrentRoom;
