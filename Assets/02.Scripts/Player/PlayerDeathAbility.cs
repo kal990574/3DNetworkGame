@@ -42,6 +42,7 @@ public class PlayerDeathAbility : PlayerAbility
 
         if (photonView.IsMine)
         {
+            _owner.Stat.Score /= 2;
             StartCoroutine(RespawnCoroutine());
         }
     }

@@ -6,6 +6,7 @@ public class ScoreItem : MonoBehaviourPun
     private bool _isPickedUp;
     private Collider _collider;
     private Rigidbody _rigidbody;
+    private const int SCORE = 500;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class ScoreItem : MonoBehaviourPun
         if (!player.PhotonView.IsMine) return;
 
         _isPickedUp = true;
-        player.AddScore(1);
+        player.AddScore(SCORE);
 
         photonView.RPC(nameof(Pickup), RpcTarget.All);
     }
