@@ -1056,6 +1056,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 284493860874438002}
+    - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4750032657757800579}
     - targetCorrespondingSourceObject: {fileID: 7229817629626485462, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5530937825009235125}
@@ -1482,3 +1485,26 @@ MonoBehaviour:
   - {fileID: 880032258670916919}
   - {fileID: 5213822138582784713}
   - {fileID: 6667595730478480661}
+--- !u!114 &4750032657757800579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925628616436272831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37155298beedd4271ab72d9ab517ee21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScanAbility
+  _scanMaterial: {fileID: 2100000, guid: 241fc559c5ebd4e209e1ffa3d4acb2bc, type: 2}
+  _maxRadius: 50
+  _expandSpeed: 30
+  _scanWidth: 2
+  _scanIntensity: 3
+  _scanColor: {r: 0.4, g: 0.8, b: 1, a: 1}
+  _falloff: 1.5
+  _cooldown: 1
+  _scanKey: 113
+  _scanAngle: 60
+  _angleSoftness: 0.1

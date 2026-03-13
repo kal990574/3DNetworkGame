@@ -20,6 +20,15 @@ public class UI_RoomInfo : MonoBehaviourPunCallbacks
         Refresh();
     }
 
+    private void OnDestroy()
+    {
+        _roomExitButton.onClick.RemoveListener(ExitRoom);
+        if (PhotonRoomManager.Instance != null)
+        {
+            PhotonRoomManager.Instance.OnDataChanged -= Refresh;
+        }
+    }
+
     private void Refresh()
     {
         Room room = PhotonRoomManager.Instance.Room;
